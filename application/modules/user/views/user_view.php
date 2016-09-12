@@ -60,7 +60,7 @@
               </table>
 
               <div class="controls pull-right">
-                  <ul id="pagination-user" class="pagination"></ul>          
+                  <ul><?=$pagination; ?></ul>          
               </div>
 
 

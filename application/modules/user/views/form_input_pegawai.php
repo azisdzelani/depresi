@@ -17,28 +17,28 @@
                   <div class="control-group">                     
                     <label class="control-label" for="firstname">Nama Lengkap</label>
                     <div class="controls">
-                      <input type="text" class="span6" name="nama" value="" placeholder="Masukan Nama Lengkap">
+                      <input type="text" class="span6" name="nama" value="<?=set_value('nama'); ?>" placeholder="Masukan Nama Lengkap">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->
 
                   <div class="control-group">                     
                     <label class="control-label" for="firstname">NIP</label>
                     <div class="controls">
-                      <input type="text" class="span6" name="nip" value="" placeholder="Masukan NIP">
+                      <input type="text" class="span6" name="nip" value="<?=set_value('nip'); ?>" placeholder="Masukan NIP">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->
                                      
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Tempat Lahir</label>
                     <div class="controls">
-                      <input type="text" class="span6" name="tempat_lahir" value="" placeholder="Masukan Tempat Lahir">
+                      <input type="text" class="span6" name="tempat_lahir" value="<?=set_value('tempat_lahir'); ?>" placeholder="Masukan Tempat Lahir">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->  
 
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Tanggal Lahir</label>
                     <div class="controls">
-                      <input type="date" class="span6" name="tanggal_lahir" value="" placeholder="Masukan Tanggal Lahir">
+                      <input type="date" class="span6" name="tanggal_lahir" value="<?=set_value('tanggal_lahir'); ?>" placeholder="Masukan Tanggal Lahir">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->    
 
@@ -46,18 +46,18 @@
                     <label class="control-label" for="lastname">Jenis Kelamin</label>
                     <div class="controls">
                       <select name="jenis_kelamin" class="span6">
-                        <option></option>
-                        <option value="laki-laki">Laki-laki</option>
-                        <option value="perempuan">Perempuan</option>
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="laki-laki"<?=set_value('laki-laki'); ?>>Laki-laki</option>
+                        <option value="perempuan">Perempuan<?=set_value('perempuan'); ?></option>
                       </select>
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->   
 
-                  <div class="control-group">                     
+                  <div class="control-group">              
                     <label class="control-label" for="lastname">Agama</label>
                     <div class="controls">
                       <select name="agama" class="span6">
-                        <option></option>
+                        <option value="">Pilih Agama</option>
                         <option value="islam">Islam</option>
                         <option value="kristen">Kristen</option>
                         <option value="protestan">Protestan</option>
@@ -71,13 +71,10 @@
                     <label class="control-label" for="jabatan">Jabatan</label>
                     <div class="controls">
                       <select name="jabatan" class="span6">
-                        <option></option>
-                        <?php
-                        foreach ($jabatan as $j) {
-                           echo "<option value='{$j->id_jabatan}'>{$j->nama_jabatan}</option>";
-                         } 
-
-                         ?>
+                        <option value="">Pilih Jabatan</option>
+                        <?php foreach($jabatan as $result): ?>
+                        <option value="<?=$result->id_jabatan ?>"><?=$result->nama_jabatan?></option>
+                        <?php endforeach; ?>
                       </select>
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->   
@@ -85,21 +82,21 @@
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Email</label>
                     <div class="controls">
-                      <input type="text" class="span6" name="email" value="" placeholder="Masukan Email">
+                      <input type="text" class="span6" name="email" value="<?=set_value('email'); ?>" placeholder="Masukan Email">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->   
 
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Alamat Rumah</label>
                     <div class="controls">
-                      <textarea rows="5" name="alamat" class="span6"></textarea>
+                      <textarea rows="5" name="alamat" class="span6"><?=set_value('alamat'); ?></textarea>
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->   
 
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Telepon</label>
                     <div class="controls">
-                      <input type="text" class="span6" name="telepon" value="" placeholder="Masukan Nomer Telepon">
+                      <input type="text" class="span6" name="telepon" value="<?=set_value('telepon'); ?>" placeholder="Masukan Nomer Telepon">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->   
 
@@ -107,7 +104,7 @@
                     <label class="control-label" for="lastname">Level User</label>
                     <div class="controls">
                       <select name="level_user" class="span6">
-                        <option></option>
+                        <option value="">Pilih Level User</option>
                         <option value="Kepala Bagian">Kepala Bagian</option>
                         <option value="Kepala Sub Bagian">Kepala Sub Bagian</option>
                         <option value="Staff">Staff</option>
