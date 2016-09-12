@@ -46,6 +46,7 @@
                       <label class="control-label" for="lastname">Jenis Kelamin</label>
                       <div class="controls">
                         <select name="jenis_kelamin" class="span6">
+                          <option></option>
                           <option value="laki-laki">Laki-laki</option>
                           <option value="perempuan">Perempuan</option>
                         </select>
@@ -56,6 +57,7 @@
                       <label class="control-label" for="lastname">Agama</label>
                       <div class="controls">
                         <select name="agama" class="span6">
+                          <option></option>
                           <option value="islam">Islam</option>
                           <option value="kristen">Kristen</option>
                           <option value="protestan">Protestan</option>
@@ -68,8 +70,8 @@
                     <div class="control-group">                     
                       <label class="control-label" for="jabatan">Jabatan</label>
                       <div class="controls">
-                        <select name="jabatan" required class="span6">
-                          <option>Pilih Salah Satu</option>
+                        <select name="jabatan" class="span6">
+                          <option></option>
                           <?php
                           foreach ($jabatan as $j) {
                              echo "<option value='{$j->id_jabatan}'>{$j->nama_jabatan}</option>";
@@ -100,6 +102,18 @@
                         <input type="text" class="span6" name="telepon" value="" placeholder="Masukan Nomer Telepon">
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->   
+
+                    <div class="control-group">                     
+                      <label class="control-label" for="lastname">Level User</label>
+                      <div class="controls">
+                        <select name="level_user" class="span6">
+                          <option></option>
+                          <option value="Kepala Bagian">Kepala Bagian</option>
+                          <option value="Kepala Sub Bagian">Kepala Sub Bagian</option>
+                          <option value="Staff">Staff</option>
+                        </select>
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group --> 
                       
                      <br />
                   

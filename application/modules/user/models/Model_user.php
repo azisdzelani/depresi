@@ -3,17 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_user extends CI_Model {
 
-	public function save($data)
+	public function save($data_pegawai, $data_user)
 	{
-		$this->db->insert('tbl_pegawai', $data);
-		$id = $this->db->insert_id();
-
-		$data_user = array(
-			'id_pegawai' =>$id,
-			'level_user' => $data['id_jabatan'],
-			'username' 		 => $data['nip'],
-			'password' 	 => $data['nip'],
-			'status'     => 'Aktif');
+		$this->db->insert('tbl_pegawai', $data_pegawai);
+		
+		$id_pegawai = $this->db->insert_id();
+		$data_user['id_pegawai'] = $id_pegawai;
 		$this->db->insert('tbl_user', $data_user);
 	}
 

@@ -111,6 +111,18 @@
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->   
 
+                    <div class="control-group">                     
+                      <label class="control-label" for="lastname">Level User</label>
+                      <div class="controls">
+                        <select name="level_user" class="span6">
+                          <option></option>
+                          <option value="Kepala Bagian"<?=$user->level_user=='Kepala Bagian'?' selected':''?>>Kepala Bagian</option>
+                          <option value="Kepala Sub Bagian"<?=$user->level_user=='Kepala Sub Bagian'?' selected':''?>>Kepala Sub Bagian</option>
+                          <option value="Staff"<?=$user->level_user=='Staff'?' selected':''?>>Staff</option>
+                        </select>
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->  
+
                       
                      <br />
                   

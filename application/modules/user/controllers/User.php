@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-	public function view_form()
+	public function __construct()
 	{
-		$this->template->content->view('view_form');
-		$this->template->publish('template', array('title'=>'User'));
+		parent::__construct();
+		//Do your magic here
 	}
 
 	public function index()
@@ -35,7 +35,7 @@ class User extends CI_Controller {
 	{
 		$data['title'] = 'Tambah User';
 		
-		$data = array(
+		$data_pegawai = array(
 			'nip' 		   	=> $this->input->post('nip'),
 			'nama_lengkap' 	=> $this->input->post('nama'),
 			'tempat_lahir' 	=> $this->input->post('tempat_lahir'),
@@ -47,9 +47,16 @@ class User extends CI_Controller {
 			'alamat_rumah' 	=> $this->input->post('alamat'),
 			'telepon' 		=> $this->input->post('telepon')
 			);
-		$this->load->model('model_user', 'user');
-		$this->user->save($data);
 
+		$data_user = array(
+			'username' 	 	=> $this->input->post('nip'),
+			'password' 	 	=> $this->input->post('nip'),
+			'status'     	=> ('Aktif'),
+			'level_user'	=> $this->input->post('level_user')
+			);
+
+		$this->load->model('model_user', 'user');
+		$this->user->save($data_pegawai, $data_user);
 		redirect('user');
 	}
 
