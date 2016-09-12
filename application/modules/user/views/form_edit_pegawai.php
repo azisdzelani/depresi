@@ -7,7 +7,7 @@
 
           <div class="widget">
             <div class="widget-header">
-              <i class="icon-user"></i><h3> Form Tambah Pegawai</h3>
+              <i class="icon-user"></i><h3> Form Edit Pegawai</h3>
             </div>
 
             <div class="widget-content">
@@ -127,7 +127,7 @@
                      <br />
                   
                     <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Save</button> 
+                      <button type="submit" class="btn btn-primary">Update</button> 
                       <button  type="reset" class="btn btn-primary" onclick="batal();">Cancel</button>
                     </div> <!-- /form-actions -->
                   </fieldset>

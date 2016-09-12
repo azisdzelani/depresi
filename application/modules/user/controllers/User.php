@@ -28,14 +28,23 @@ class User extends CI_Controller {
 
 
 		$this->template->content->view('form_input_pegawai', $data);
-		$this->template->publish('template', array('title'=>'Form Input Pegawai'));
+		$this->template->publish('template', array('title'=>'Input Pegawai'));
 	}
 
 	public function do_create()
 	{
-		$data['title'] = 'Tambah User';
 		
-		$data_pegawai = array(
+		$this->_rules();
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$data['title'] = 'Tambah User';
+
+			$this->template->content->view('form_input_pegawai', $data);
+			$this->template->publish('template', array('title'=>'Input Pegawai'));
+		} 
+		else 
+		{
+			$data_pegawai = array(
 			'nip' 		   	=> $this->input->post('nip'),
 			'nama_lengkap' 	=> $this->input->post('nama'),
 			'tempat_lahir' 	=> $this->input->post('tempat_lahir'),
@@ -58,6 +67,9 @@ class User extends CI_Controller {
 		$this->load->model('model_user', 'user');
 		$this->user->save($data_pegawai, $data_user);
 		redirect('user');
+		
+		}
+		
 	}
 
 	public function edit($id)
@@ -72,7 +84,7 @@ class User extends CI_Controller {
 
 
 		$this->template->content->view('form_edit_pegawai', $data);
-		$this->template->publish('template', array('title'=>'Form Input Pegawai'));
+		$this->template->publish('template', array('title'=>'Edit Pegawai'));
 	}
 
 	public function update()
@@ -105,6 +117,36 @@ class User extends CI_Controller {
 		$this->user->delete($id);
 
 		redirect('user');
+	}
+
+	public function _rules()
+	{
+		$config = array(
+
+	        array(
+	                'field'  => 'nama',
+	                'label'  => 'Nama Lengkap',
+	                'rules'  => 'required|max_length[22]|is_unique[tbl_pegawai.nama_lengkap]',
+	                'errors' => array(
+	                			'required' 	=> 'Kolom %s Harus Diisi',
+	                			'is_unique' =>	'nama Sudah Digunakan'
+	                	),
+	        ),
+	         array(
+	                'field'  => 'nama',
+	                'label'  => 'Nama Lengkap',
+	                'rules'  => 'required|max_length[22]|is_unique[tbl_pegawai.nama_lengkap]',
+	                'errors' => array(
+	                			'required' 	=> 'Kolom %s Harus Diisi',
+	                			'is_unique' =>	'nama Sudah Digunakan'
+	                	),
+	        ),
+	       
+	);
+
+		$this->form_validation->set_rules($config);
+		$this->form_validation->set_error_delimiters('<p class="alert">','</p>');
+	
 	}
 
 }

@@ -56,7 +56,7 @@
             <li><a href="#">Lakip</a></li>
           </ul>
         </li>
-        <li><a href="<?= base_url('dokumen') ?>"><i class="icon-comments"></i><span>Discussion</span> </a></li>
+        <li><a href="<?= base_url('discussion') ?>"><i class="icon-comments"></i><span>Discussion</span> </a></li>
         <li><a href="#"><i class="icon-pencil"></i><span>Blog</span> </a> </li>
         <li><a href="#"><i class="icon-list-alt"></i><span>News</span> </a> </li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-calendar"></i><span>Report</span> <b class="caret"></b></a>
@@ -82,7 +82,7 @@
   <div class="footer-inner">
     <div class="container">
       <div class="row">
-        <div class="span12"> &copy; 2013 <a href="<?php echo base_url() ?>assets/http://www.egrappler.com/">Bootstrap Responsive Admin Template</a>. </div>
+        <div class="span12"> &copy; 2016 <a href="www.lan.go.id">Lembaga Administrasi Negara</a>. </div>
         <!-- /span12 --> 
       </div>
       <!-- /row --> 

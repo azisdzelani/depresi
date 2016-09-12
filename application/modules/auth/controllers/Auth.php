@@ -58,7 +58,8 @@ class Auth extends CI_Controller {
 				$data	= array( 	'id_user'		=> $valid_user->id_user,
 									'username'		=> $valid_user->username,
 									'level_user'	=> $valid_user->level_user,
-									'status'		=> $valid_user->status
+									'status'		=> $valid_user->status,
+									'id_pegawai'	=> $valid_user->id_pegawai
 							);
 				
 				$this->session->set_userdata($data);

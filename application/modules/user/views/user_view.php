@@ -7,7 +7,7 @@
 
           <div class="widget">
             <div class="widget-header">
-              <i class="icon-user"></i><h3> Daftar Master Pegawai</h3>
+              <i class="icon-user"></i><h3> Daftar Master User</h3>
               <a class="btn btn-large btn-primary" href="<?=base_url('user/create') ?>">Tambah Pegawai</a>
             </div>
 
