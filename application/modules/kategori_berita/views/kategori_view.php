@@ -8,7 +8,10 @@
           <div class="widget">
             <div class="widget-header">
               <i class="icon-user"></i><h3> <?=$title; ?></h3>
-              <a class="btn btn-large btn-primary" href="<?=base_url('user/create') ?>">Tambah Pegawai</a>
+              <!-- Button to trigger modal -->
+              <?php 
+              include('tambah.php');
+               ?>
             </div>
 
             <div class="widget-content">
@@ -37,30 +40,26 @@
 
               <table id="tbl-user" class="table table-striped table-bordered">
                   <tbody>
-                  <?php 
-                  $i=0;
-                  foreach ($lists as $user) { ?>
                   <tr>
-                    <td width="2%"><?=++$i?></td>
-                    <td width="25%"><img src="<?= base_url()?>assets/img/user.png"> <?=$user->nama_lengkap?></td>
-                    <td width="25%"><i class="icon-envelope"></i> <span class="value"><?=$user->email?></span></td>
-                    <td width="15%"><i class="icon-lock"></i> <span class="value"><?=$user->level_user?></span></td>
-                    <td width="15%"><i class="icon-time"></i> <span class="value"><?=$user->status?></span></td>
+                    <td width="2%">No</td>
+                    <td width="25%"><img src="<?= base_url()?>assets/img/user.png">Nama Kategori Berita</td>
+                    <td width="25%"><i class="icon-envelope"></i> <span class="value">Keterangan</span></td>
+                    <td width="15%"><i class="icon-lock"></i> <span class="value">Urutan</span></td>
+                    <td width="15%"><i class="icon-time"></i> <span class="value">Slug</span></td>
                     <td width="18%">
-                      <a href="<?=base_url('user/edit/'.$user->id_pegawai)?>" class="btn btn-small btn-info"><i class="btn-icon-only icon-pencil">
+                      <a href="#" class="btn btn-small btn-info"><i class="btn-icon-only icon-pencil">
                       Edit</i></a>
 
-                      <a href="<?=base_url('user/delete/'.$user->id_pegawai)?>" class="btn btn-small btn-danger"><i class="btn-icon-only icon-remove">
+                      <a href="#" class="btn btn-small btn-danger"><i class="btn-icon-only icon-remove">
                       Hapus</i></a>
                     </td>
                   </tr>
-                 <?php } ?>
               		
                   </tbody>
               </table>
 
               <div class="controls pull-right">
-                  <ul><?=$pagination; ?></ul>          
+                  <ul></ul>          
               </div>
 
 

@@ -8,7 +8,7 @@
           <div class="widget">
             <div class="widget-header">
               <i class="icon-user"></i><h3> <?=$title; ?></h3>
-              <a class="btn btn-large btn-primary" href="<?=base_url('user/create') ?>">Tambah Pegawai</a>
+              <a class="btn btn-large btn-primary" href="<?=base_url('dokumen/create') ?>">Tambah Dokumen</a>
             </div>
 
             <div class="widget-content">
@@ -37,30 +37,33 @@
 
               <table id="tbl-user" class="table table-striped table-bordered">
                   <tbody>
+                  <tr align="center">
+                    <td width="2%"><strong>No</strong></td>
+                    <td width="25%"><strong>Nama Dokumen</strong></td>
+                    <td width="25%"><i class="icon-envelope"></i> <span class="value"><strong>Keterangan</strong></span></td>
+                    <td width="10%"><i class="icon-lock"></i> <span class="value"><strong>Tanggal</strong></span></td>
+                    <td width="10%"><i class="icon-time"></i> <span class="value"><strong>Kategori</strong></span></td>
+                    <td width="10%"><i class="icon-remove"></i> <span class="value"><strong>Aksi</strong></span></td>
+                  </tr>
                   <?php 
                   $i=0;
-                  foreach ($lists as $user) { ?>
+                  foreach ($dokumen as $list) { ?>
                   <tr>
                     <td width="2%"><?=++$i?></td>
-                    <td width="25%"><img src="<?= base_url()?>assets/img/user.png"> <?=$user->nama_lengkap?></td>
-                    <td width="25%"><i class="icon-envelope"></i> <span class="value"><?=$user->email?></span></td>
-                    <td width="15%"><i class="icon-lock"></i> <span class="value"><?=$user->level_user?></span></td>
-                    <td width="15%"><i class="icon-time"></i> <span class="value"><?=$user->status?></span></td>
-                    <td width="18%">
-                      <a href="<?=base_url('user/edit/'.$user->id_pegawai)?>" class="btn btn-small btn-info"><i class="btn-icon-only icon-pencil">
-                      Edit</i></a>
-
-                      <a href="<?=base_url('user/delete/'.$user->id_pegawai)?>" class="btn btn-small btn-danger"><i class="btn-icon-only icon-remove">
-                      Hapus</i></a>
+                    <td width="25%"><img src="<?= base_url()?>assets/img/document.png"> <?=$list->file?></td>
+                    <td width="25%"><?=$list->keterangan?></td>
+                    <td width="10%"><?=$list->tanggal?></td>
+                    <td width="10%"><?=$list->nama_kategori?></td>
+                    <td width="10%">
+                      <a href="<?=base_url('dokumen/delete/'.$list->id_dokumen)?>" class="btn btn-medium btn-danger"><i class="icon-remove"></i> <span class="value"> Hapus Dokumen</span></a>
                     </td>
                   </tr>
-                 <?php } ?>
-              		
+                   <?php } ?>
                   </tbody>
               </table>
 
               <div class="controls pull-right">
-                  <ul><?=$pagination; ?></ul>          
+                  <ul></ul>          
               </div>
 
 
