@@ -22,12 +22,8 @@ class Model_dokumen extends CI_Model
 		$this->db->insert('tbl_dokumen', $data);
 	}
 
-	public function delete($id, $file)
+	public function delete($id)
 	{
-		$this->db->where('id_dokumen', $id);
-
-		unlink("uploads/".$file);
-
 		$this->db->delete('tbl_dokumen', array('id_dokumen' => $id));
 
 	}

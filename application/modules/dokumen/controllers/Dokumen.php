@@ -32,7 +32,7 @@ class Dokumen extends CI_Controller {
 	public function do_create()
 	{
 		$config['upload_path']          = './uploads/';
-       	$config['allowed_types']        = 'gif|jpg|png';
+       	$config['allowed_types']        = 'docx|doc|pdf';
         $config['max_size']             = '300';
         $config['max_width']            = '2000';
         $config['max_height']           = '2000';
@@ -69,7 +69,10 @@ class Dokumen extends CI_Controller {
 
 	public function delete($id)
 	{
-		$this->dokumen->delete($id);
+
+		$file = $this->input->post('file');
+
+		$this->dokumen->delete($id, $file);
 
 		redirect('dokumen');
 	}

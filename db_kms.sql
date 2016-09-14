@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2016 at 08:50 PM
+-- Generation Time: Sep 14, 2016 at 08:26 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -19,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_kms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_berita`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_berita` (
+  `id_berita` int(11) NOT NULL,
+  `id_user` int(3) NOT NULL,
+  `id_kategori_berita` int(11) NOT NULL,
+  `slug_berita` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `status_berita` varchar(20) NOT NULL,
+  `jenis_berita` varchar(20) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -46,22 +65,39 @@ INSERT INTO `tbl_diskusi` (`id_diskusi`, `id_pegawai`, `id_kategori`, `judul_dis
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_dokumen`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_dokumen` (
+  `id_dokumen` int(3) NOT NULL,
+  `id_kategori_dokumen` int(3) NOT NULL,
+  `id_user` int(3) NOT NULL,
+  `judul` varchar(50) NOT NULL,
+  `keterangan` text NOT NULL,
+  `tanggal` date NOT NULL,
+  `file` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_jabatan`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_jabatan` (
   `id_jabatan` int(2) NOT NULL,
   `nama_jabatan` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_jabatan`
 --
 
 INSERT INTO `tbl_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
-(1, 'Kepala Bagian'),
-(2, 'Kepala Sub Bagian'),
-(3, 'Staff');
+(1, 'Kepala Bagian Humas'),
+(2, 'Kepala Sub Bagian Publikasi'),
+(3, 'Kepala Sub Bagian TI'),
+(4, 'Staff');
 
 -- --------------------------------------------------------
 
@@ -85,6 +121,49 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_kategori_berita`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_kategori_berita` (
+  `id_kategori_berita` int(11) NOT NULL,
+  `slug_kategori_berita` varchar(100) DEFAULT NULL,
+  `nama_ketagori_berita` varchar(100) NOT NULL,
+  `keterangan` text,
+  `urutan` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_kategori_berita`
+--
+
+INSERT INTO `tbl_kategori_berita` (`id_kategori_berita`, `slug_kategori_berita`, `nama_ketagori_berita`, `keterangan`, `urutan`) VALUES
+(1, 'ini adalah perjuangan', 'teknologi', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kategori_dokumen`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_kategori_dokumen` (
+  `id_kategori_dokumen` int(3) NOT NULL,
+  `nama_kategori` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_kategori_dokumen`
+--
+
+INSERT INTO `tbl_kategori_dokumen` (`id_kategori_dokumen`, `nama_kategori`) VALUES
+(2, 'Notulensi'),
+(3, 'Lakip'),
+(5, 'SOP'),
+(9, 'Jadwal Pelatihan'),
+(12, 'Hasil Inovasi');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_komentar`
 --
 
@@ -92,24 +171,25 @@ CREATE TABLE IF NOT EXISTS `tbl_komentar` (
   `id_komentar` int(3) NOT NULL,
   `id_diskusi` int(3) NOT NULL,
   `id_pegawai` int(3) NOT NULL,
-  `isi_komentar` text NOT NULL
+  `isi_komentar` text NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_komentar`
 --
 
-INSERT INTO `tbl_komentar` (`id_komentar`, `id_diskusi`, `id_pegawai`, `isi_komentar`) VALUES
-(1, 1, 1, 'Hello World'),
-(2, 1, 1, 'hello 2'),
-(3, 1, 1, 'hello 3'),
-(4, 1, 1, ''),
-(5, 2, 1, ''),
-(6, 2, 1, 'hjhjasa'),
-(7, 2, 1, 'asasas'),
-(8, 1, 1, 'dededed'),
-(9, 1, 1, 'testis'),
-(10, 1, 1, 'cek cek');
+INSERT INTO `tbl_komentar` (`id_komentar`, `id_diskusi`, `id_pegawai`, `isi_komentar`, `date`) VALUES
+(1, 1, 44, 'Hello World', '0000-00-00'),
+(2, 1, 45, 'hello 2', '0000-00-00'),
+(3, 1, 64, 'hello 3', '0000-00-00'),
+(4, 1, 1, '', '0000-00-00'),
+(5, 2, 1, '', '0000-00-00'),
+(6, 2, 1, 'hjhjasa', '0000-00-00'),
+(7, 2, 1, 'asasas', '0000-00-00'),
+(8, 1, 1, 'dededed', '0000-00-00'),
+(9, 1, 1, 'testis', '0000-00-00'),
+(10, 1, 1, 'cek cek', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -129,19 +209,7 @@ CREATE TABLE IF NOT EXISTS `tbl_pegawai` (
   `email` varchar(30) NOT NULL,
   `alamat_rumah` varchar(50) NOT NULL,
   `telepon` varchar(12) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_pegawai`
---
-
-INSERT INTO `tbl_pegawai` (`id_pegawai`, `nip`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `id_jabatan`, `email`, `alamat_rumah`, `telepon`) VALUES
-(2, '11110930000', 'tes', 'tes', '2016-09-08', 'perempuan', 'kristen', 3, 'azisdzelani@gmail.com', 'jalan hankam', '08670238232'),
-(12, 'admin', 'admin', 'bekasi', '2016-09-17', 'perempuan', 'islam', 3, 'azisdzelani@gmail.com', 'jalan raya ka', '085693677158'),
-(13, '11110930000', 'tes', 'bekasi', '2016-09-23', 'laki-laki', 'islam', 1, 'azisdzelani@gmail.com', 'jalan raya hankam', '085693677158'),
-(14, 'admin', 'admin', 'bekasi', '2016-09-16', 'laki-laki', 'islam', 2, 'azisdzelani@gmail.com', 'asasas', '08670238232'),
-(15, 'kabag', 'kabag', 'bekasi', '2016-09-22', 'perempuan', 'islam', 3, 'azisdzelani@yahoo.com', 'zasasas', '085693677158'),
-(16, '1111093000034', 'bedul', 'bekasi', '1993-12-04', 'perempuan', 'hindu', 3, 'bedul@gmail.com', 'jalan raya hankam', '085693677158');
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -156,28 +224,37 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `username` varchar(30) NOT NULL,
   `password` varchar(64) NOT NULL,
   `status` set('Aktif','Tidak Aktif') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `id_pegawai`, `level_user`, `username`, `password`, `status`) VALUES
-(11, 12, 'Staff', '11110930000', '11110930000', 'Aktif'),
-(12, 13, 'Kepala Bagian', '11110930000', '11110930000', 'Aktif'),
-(13, 14, 'Kepala Sub Bagian', 'admin', 'admin', 'Aktif'),
-(14, 15, 'Staff', 'kabag', 'kabag', 'Aktif'),
-(15, 16, 'Staff', '', '', 'Aktif');
+(37, 39, 'Admin', 'admin', 'admin', 'Aktif');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `tbl_berita`
+--
+ALTER TABLE `tbl_berita`
+  ADD PRIMARY KEY (`id_berita`),
+  ADD UNIQUE KEY `slug_berita` (`slug_berita`);
+
+--
 -- Indexes for table `tbl_diskusi`
 --
 ALTER TABLE `tbl_diskusi`
   ADD PRIMARY KEY (`id_diskusi`);
+
+--
+-- Indexes for table `tbl_dokumen`
+--
+ALTER TABLE `tbl_dokumen`
+  ADD PRIMARY KEY (`id_dokumen`);
 
 --
 -- Indexes for table `tbl_jabatan`
@@ -190,6 +267,19 @@ ALTER TABLE `tbl_jabatan`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `tbl_kategori_berita`
+--
+ALTER TABLE `tbl_kategori_berita`
+  ADD PRIMARY KEY (`id_kategori_berita`),
+  ADD UNIQUE KEY `slug_kategori_berita` (`slug_kategori_berita`);
+
+--
+-- Indexes for table `tbl_kategori_dokumen`
+--
+ALTER TABLE `tbl_kategori_dokumen`
+  ADD PRIMARY KEY (`id_kategori_dokumen`);
 
 --
 -- Indexes for table `tbl_komentar`
@@ -214,20 +304,40 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_berita`
+--
+ALTER TABLE `tbl_berita`
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `tbl_diskusi`
 --
 ALTER TABLE `tbl_diskusi`
   MODIFY `id_diskusi` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `tbl_dokumen`
+--
+ALTER TABLE `tbl_dokumen`
+  MODIFY `id_dokumen` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
 -- AUTO_INCREMENT for table `tbl_jabatan`
 --
 ALTER TABLE `tbl_jabatan`
-  MODIFY `id_jabatan` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_jabatan` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_kategori_berita`
+--
+ALTER TABLE `tbl_kategori_berita`
+  MODIFY `id_kategori_berita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_kategori_dokumen`
+--
+ALTER TABLE `tbl_kategori_dokumen`
+  MODIFY `id_kategori_dokumen` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_komentar`
 --
@@ -237,12 +347,12 @@ ALTER TABLE `tbl_komentar`
 -- AUTO_INCREMENT for table `tbl_pegawai`
 --
 ALTER TABLE `tbl_pegawai`
-  MODIFY `id_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

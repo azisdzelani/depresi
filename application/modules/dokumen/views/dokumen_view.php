@@ -1,13 +1,15 @@
 <div class="main">
   <div class="main-inner">
     <div class="container">
-      
+
       <div class="row">
         <div class="span12">
 
-          <div class="widget">
+          <div class="panel panel-default">
+            <div class="panel-body">
+            <div class="widget">
             <div class="widget-header">
-              <i class="icon-user"></i><h3> <?=$title; ?></h3>
+              <i class="icon-book"></i><h3> <?=$title; ?></h3>
               <a class="btn btn-large btn-primary" href="<?=base_url('dokumen/create') ?>">Tambah Dokumen</a>
             </div>
 
@@ -20,7 +22,7 @@
               <!-- end search -->
 
               <div class="controls pull-left">
-              	<a class="btn btn-default" id="btn-check-all"><i class="icon-check"></i></a>
+                <a class="btn btn-default" id="btn-check-all"><i class="icon-check"></i></a>
               </div>
 
               <div class="controls pull-left">
@@ -36,7 +38,7 @@
               <!-- end controls -->  
 
               <table id="tbl-user" class="table table-striped table-bordered">
-                  <tbody>
+                <tbody>
                   <tr align="center">
                     <td width="2%"><strong>No</strong></td>
                     <td width="25%"><strong>Nama Dokumen</strong></td>
@@ -48,36 +50,37 @@
                   <?php 
                   $i=0;
                   foreach ($dokumen as $list) { ?>
-                  <tr>
-                    <td width="2%"><?=++$i?></td>
-                    <td width="25%"><img src="<?= base_url()?>assets/img/document.png"> <?=$list->file?></td>
-                    <td width="25%"><?=$list->keterangan?></td>
-                    <td width="10%"><?=$list->tanggal?></td>
-                    <td width="10%"><?=$list->nama_kategori?></td>
-                    <td width="10%">
-                      <a href="<?=base_url('dokumen/delete/'.$list->id_dokumen)?>" class="btn btn-medium btn-danger"><i class="icon-remove"></i> <span class="value"> Hapus Dokumen</span></a>
-                    </td>
-                  </tr>
-                   <?php } ?>
+                    <tr>
+                      <td width="2%"><?=++$i?></td>
+                      <td width="25%"><img src="<?= base_url()?>assets/img/document.png"> <?=$list->file?></td>
+                      <td width="25%"><?=$list->keterangan?></td>
+                      <td width="10%"><?=$list->tanggal?></td>
+                      <td width="10%"><?=$list->nama_kategori?></td>
+                      <td width="10%">
+                        <a href="<?=base_url('dokumen/delete/'.$list->id_dokumen)?>" class="btn btn-medium btn-danger"><i class="icon-trash"></i> <span class="value"> Hapus Dokumen</span></a>
+                      </td>
+                    </tr>
+                    <?php } ?>
                   </tbody>
-              </table>
+                </table>
 
-              <div class="controls pull-right">
+                <div class="controls pull-right">
                   <ul></ul>          
-              </div>
-
+                </div>
 
             </div>
-            <!-- /widget-content --> 
+              <!-- /widget-content --> 
           </div>
-          
+            </div>
+          </div>
+
+          </div>
         </div>
+        <!-- /row --> 
       </div>
-      <!-- /row --> 
+      <!-- /container --> 
     </div>
-    <!-- /container --> 
+    <!-- /main-inner --> 
   </div>
-  <!-- /main-inner --> 
-</div>
-<!-- /main -->
+  <!-- /main -->
 

@@ -1,11 +1,12 @@
 <div class="main">
   <div class="main-inner">
     <div class="container">
-      
+
       <div class="row">
         <div class="span12">
-
-          <div class="widget">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="widget">
             <div class="widget-header">
               <i class="icon-user"></i><h3> Form Tambah Pegawai</h3>
             </div>
@@ -27,7 +28,7 @@
                       <input type="text" class="span6" name="nip" value="<?=set_value('nip'); ?>" placeholder="Masukan NIP">
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group -->
-                                     
+                  
                   <div class="control-group">                     
                     <label class="control-label" for="lastname">Tempat Lahir</label>
                     <div class="controls">
@@ -73,7 +74,7 @@
                       <select name="jabatan" class="span6">
                         <option value="">Pilih Jabatan</option>
                         <?php foreach($jabatan as $result): ?>
-                        <option value="<?=$result->id_jabatan ?>"><?=$result->nama_jabatan?></option>
+                          <option value="<?=$result->id_jabatan ?>"><?=$result->nama_jabatan?></option>
                         <?php endforeach; ?>
                       </select>
                     </div> <!-- /controls -->       
@@ -111,9 +112,9 @@
                       </select>
                     </div> <!-- /controls -->       
                   </div> <!-- /control-group --> 
-                    
-                   <br />
-                
+                  
+                  <br />
+                  
                   <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Save</button> 
                     <button class="btn btn-primary">Cancel</button>
@@ -124,7 +125,10 @@
             </div>
             <!-- /widget-content --> 
 
-          </div> 
+              </div> 
+            </div>
+          </div>
+
         </div>
       </div>
       <!-- /row --> 

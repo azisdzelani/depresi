@@ -12,14 +12,14 @@
 
 
             <div class="widget-content">
-            <?php foreach ($lists as $diskusi) { ?>
-	            <div class="row">
-					<div class="news-item-date"> <span class="news-item-month"><?=$diskusi->tanggal ?></span> </div>
-					<div class="news-item-detail"> <a href="<?=base_url('discussion/get_by_id/'.$diskusi->id_diskusi)?>" class="news-item-title" target="_blank"><h3><?=$diskusi->judul_diskusi?></h3></a>
-						<p class="news-item-preview"> <?=$diskusi->isi_diskusi?></p>
-					</div>
-	            </div>
-	        <?php } ?>
+              <?php foreach ($lists as $diskusi) { ?>
+               <div class="row">
+                 <div class="news-item-date"> <span class="news-item-month"><?=$diskusi->tanggal ?></span> </div>
+                 <div class="news-item-detail"> <a href="<?=base_url('discussion/get_by_id/'.$diskusi->id_diskusi)?>" class="news-item-title" target="_blank"><h3><?=$diskusi->judul_diskusi?></h3></a>
+                  <p class="news-item-preview"> <?=$diskusi->isi_diskusi?></p>
+                </div>
+              </div>
+              <?php } ?>
             </div>
           </div>
 

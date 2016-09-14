@@ -22,13 +22,13 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?php echo base_url() ?>assets/index.html">Knowledge Management System </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?php echo base_url('dashboard') ?>">Knowledge Management System </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown"><a href="<?php echo base_url() ?>assets/#" class="dropdown-toggle" data-toggle="dropdown"><i
-            class="icon-user"></i> Hallo, Admin <b class="caret"></b></a>
+            class="icon-user"></i> Anda Login Sebagai, <?=$this->session->userdata('level_user') ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="<?= base_url('auth/logout') ?>">Setting Account</a></li>
+              <li><a href="<?= base_url('user/change_password') ?>">Setting Account</a></li>
               <li><a href="<?= base_url('auth/logout') ?>">Logout</a></li>
             </ul>
           </li>
@@ -58,8 +58,7 @@
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Manage Dokumen</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?=base_url('dokumen');?>">Data Dokumen</a></li>
-            <li><a href="<?=base_url('dokumen/create'); ?>">Tambah Dokumen</a></li>
-            <li><a href="<?=base_url('dokumen/create_kategori') ?>">Tambah Kategori</a></li>
+            <li><a href="<?=base_url('kategori_dokumen') ?>">Tambah Kategori</a></li>
           </ul>
         </li>
         <!-- end manu dokumen -->
@@ -73,8 +72,7 @@
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Berita dan Informasi</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?=base_url('berita');?>">Data Berita</a></li>
-            <li><a href="<?=base_url('berita/create_berita'); ?>">Tambah Berita</a></li>
-            <li><a href="<?=base_url('kategori_berita') ?>">Tambah Kategori Berita</a></li>
+            <li><a href="<?=base_url('kategori_berita') ?>">Tambah Kategori</a></li>
           </ul>
         </li>
         <!-- end menu berita -->
