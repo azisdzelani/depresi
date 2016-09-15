@@ -10,6 +10,14 @@ class Model_discussion extends CI_Model {
 	
 			return $list->result();
 		}
+
+		public function get_by_kategori($id)
+		{
+			
+			$list = $this->db->get_where('tbl_diskusi', array('id_kategori' => $id));
+			return $list->row();
+
+		}
 		
 		public function get_by_id($id)
 		{

@@ -16,18 +16,19 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?php echo base_url() ?>assets/index.html">Knowledge Management System </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?php echo base_url('dashboard') ?>">Knowledge Management System </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown"><a href="<?php echo base_url() ?>assets/#" class="dropdown-toggle" data-toggle="dropdown"><i
-            class="icon-user"></i> Hallo, Admin <b class="caret"></b></a>
+            class="icon-user"></i> Anda Login Sebagai, <?=$this->session->userdata('level_user') ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="<?= base_url('auth/logout') ?>">Setting Account</a></li>
+              <li><a href="<?= base_url('user/change_password') ?>">Setting Account</a></li>
               <li><a href="<?= base_url('auth/logout') ?>">Logout</a></li>
             </ul>
           </li>
@@ -47,18 +48,35 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
+
         <li class="active"><a href="<?= base_url('dashboard');?>"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+        <!--  end menu dashboard -->
+
         <li><a href="<?= base_url('user');?>"><i class="icon-group"></i><span>Manage User</span> </a> </li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Explicit Dokumen</span> <b class="caret"></b></a>
+        <!-- end menu manage user -->
+
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Manage Dokumen</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">SOP</a></li>
-            <li><a href="#">Notulen Rapat</a></li>
-            <li><a href="#">Lakip</a></li>
+            <li><a href="<?=base_url('dokumen');?>">Data Dokumen</a></li>
+            <li><a href="<?=base_url('kategori_dokumen') ?>">Tambah Kategori</a></li>
           </ul>
         </li>
+        <!-- end manu dokumen -->
+
         <li><a href="<?= base_url('discussion') ?>"><i class="icon-comments"></i><span>Discussion</span> </a></li>
+        <!-- end menu discussion -->
+
         <li><a href="#"><i class="icon-pencil"></i><span>Blog</span> </a> </li>
-        <li><a href="#"><i class="icon-list-alt"></i><span>News</span> </a> </li>
+        <!-- end menu blog -->
+
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Berita dan Informasi</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?=base_url('berita');?>">Data Berita</a></li>
+            <li><a href="<?=base_url('kategori_berita') ?>">Tambah Kategori</a></li>
+          </ul>
+        </li>
+        <!-- end menu berita -->
+
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-calendar"></i><span>Report</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Laporan Karyawan</a></li>
@@ -66,8 +84,13 @@
             <li><a href="#">Laporan Pelatihan</a></li>
           </ul>
         </li>
+        <!-- end menu report -->
+
         <li><a href="#"><i class="icon-pushpin"></i><span>FAQ</span> </a></li>
+        <!-- end menu FAQ -->
+
         <li><a href="<?= base_url('auth/logout');?>"><i class="icon-off"></i><span>Logout</span> </a></li>
+        <!-- end menu Logout -->
       </ul>
     </div>
     <!-- /container --> 

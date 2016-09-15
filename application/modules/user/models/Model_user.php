@@ -12,10 +12,11 @@ class Model_user extends CI_Model {
 		$this->db->insert('tbl_user', $data_user);
 	}
 
-	public function lists()
+	public function lists($limit, $offset)
 	{
 		$this->db->select('tbl_pegawai.id_pegawai, tbl_pegawai.nama_lengkap, tbl_pegawai.email, tbl_user.level_user, tbl_user.status');
 		$this->db->from('tbl_pegawai');
+		$this->db->limit($limit, $offset);
 		$this->db->join('tbl_user', 'tbl_pegawai.id_pegawai = tbl_user.id_pegawai');
 		$this->db->order_by('tbl_pegawai.id_pegawai','desc');
 		$list = $this->db->get();
@@ -58,7 +59,7 @@ class Model_user extends CI_Model {
 
 		$this->db->where('id_pegawai', $data['id_pegawai']);
 		$this->db->update('tbl_user', array('status' => $data['status'],
-											'level_user' => $data['id_jabatan']+1));
+											'level_user' => $data['level_user']));
 	}
 
 	public function delete($id)
@@ -66,6 +67,11 @@ class Model_user extends CI_Model {
 		$this->db->delete('tbl_pegawai', array('id_pegawai' => $id));
 		$this->db->delete('tbl_user', array('id_pegawai' => $id));
 
+	}
+
+	public function total_rows($table)
+	{
+		return $this->db->count_all_results($table);
 	}
 
 }

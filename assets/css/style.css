@@ -1782,3 +1782,11 @@ ol.ol-transaksi{
 	}
 	
 }
+
+  div.pagging{margin-top: 20px; margin-bottom: 20px}
+  div.pagging a, div.pagging strong{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+  }
