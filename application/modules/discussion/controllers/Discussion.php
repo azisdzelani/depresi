@@ -20,23 +20,18 @@ class Discussion extends CI_Controller {
 		$this->template->publish('template', array('title'=>'Kategori Diskusi'));		
 	}
 
-	public function list_kategori($id)
-	{
-		$data = array('title' => 'List Diskusi',
-					  'lists' => $this->diskusi->get_by_kategori($id),
-					  'id'	  => $this->uri->segment(3));
-		print_r($data);die();
-
-		$this->template->content->view('form_diskusi_view', $data);
-		$this->template->publish('template', array('title'=>'Dashboard'));
-	}
-
 	public function list_by_kategori()
-	{
-		$data['title'] = 'halaman diskusi';
-		$this->template->content->view('diskusi_view', $data);
-		$this->template->publish('template', array('title'=>'Dashboard'));	
-	}
+    {
+        $id = $this->uri->segment(3); //tangkep param yag dilempar dari url
+
+        $data = array('title' => 'halaman diskusi',
+        		      'list_kategori' => $this->diskusi->get_by_kategori($id));
+        echo "<pre>";
+        print_r($data);
+       
+        $this->template->content->view('diskusi_view', $data);
+        $this->template->publish('template', array('title'=>'Dashboard')); 
+    }
 
 	public function get_by_id($id)
 	{

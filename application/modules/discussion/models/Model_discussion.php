@@ -15,7 +15,7 @@ class Model_discussion extends CI_Model {
 		{
 			
 			$list = $this->db->get_where('tbl_diskusi', array('id_kategori' => $id));
-			return $list->row();
+			return $list->result();
 
 		}
 		
@@ -25,7 +25,7 @@ class Model_discussion extends CI_Model {
 			$list = $this->db->get('tbl_diskusi');
 			
 
-		return $list->row();
+			return $list->row();
 		}
 
 }

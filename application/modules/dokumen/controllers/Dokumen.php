@@ -70,14 +70,7 @@ class Dokumen extends CI_Controller {
 	public function delete($id)
 	{
 
-<<<<<<< HEAD
-		$file = $this->uri->segment(3);
-		$file = $this->uri->segment(4);
-
-		var_dump($file);
-=======
 		$file = $this->input->post('file');
->>>>>>> f9567fca8d43252f6061823c1688180a27f043fa
 
 		$this->dokumen->delete($id, $file);
 

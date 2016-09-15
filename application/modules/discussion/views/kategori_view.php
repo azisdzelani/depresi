@@ -18,25 +18,21 @@
                   <table id="tbl-user" class="table table-striped table-bordered">
                     <tbody>
                       <?php 
+                      $i=0;
                       foreach ($lists as $kategori) { ?>
                         <tr>
                           <td width="2%"><img src="http://findicons.com/icon/download/19182/chat/48/png"></td>
                           <td width="58%">
-                            <a href="<?=base_url('discussion/create/'.$kategori->id_kategori)?>"><h2><?=$kategori->nama_kategori?></h2></a>
+                            <a href="<?=base_url('discussion/list_by_kategori/'.$kategori->id_kategori)?>"><h2><?=$kategori->nama_kategori?></h2></a>
                             <p><?=$kategori->keterangan?></p>
                           </td>
-                          <td><span><i class="icon-comment"></i> </span>Thread</td>
-                          <td>Moderator by <br/> 
-                          <strong><?=$this->session->userdata('level_user')?></strong></td>
                         </tr>
                       <?php } ?>
-
                     </tbody>
                   </table>
                 </div>
               </div>                
             </div>
-
           </div>
         </div>
       </div>
