@@ -57,7 +57,11 @@
                       <td width="10%"><?=$list->tanggal?></td>
                       <td width="10%"><?=$list->nama_kategori?></td>
                       <td width="10%">
+<<<<<<< HEAD
                         <a href="<?=base_url('dokumen/delete/'.$list->id_dokumen.'/'.$list->file)?>" class="btn btn-medium btn-danger"><i class="icon-trash"></i> <span class="value"> Hapus Dokumen</span></a>
+=======
+                        <a href="<?=base_url('dokumen/delete/'.$list->id_dokumen)?>" class="btn btn-medium btn-danger"><i class="icon-trash"></i> <span class="value"> Hapus Dokumen</span></a>
+>>>>>>> f9567fca8d43252f6061823c1688180a27f043fa
                       </td>
                     </tr>
                     <?php } ?>

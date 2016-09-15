@@ -26,7 +26,11 @@ class Model_dokumen extends CI_Model
 	{
 		$this->db->where('id_dokumen', $id);
 
+<<<<<<< HEAD
 		unlink("./uploads/".$file);
+=======
+		unlink("uploads/".$file);
+>>>>>>> f9567fca8d43252f6061823c1688180a27f043fa
 
 		$this->db->delete('tbl_dokumen', array('id_dokumen' => $id));
 
