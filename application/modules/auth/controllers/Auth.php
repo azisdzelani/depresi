@@ -70,13 +70,13 @@ class Auth extends CI_Controller {
 						redirect('dashboard');
 						break;
 					case ($valid_user->level_user == 'Kepala Bagian' && $valid_user->status == 'Aktif'):
-						redirect('Kabag');
+						redirect('dashboard');
 						break;
 					case ($valid_user->level_user == 'Kepala Sub Bagian' && $valid_user->status == 'Aktif'):
-						redirect('Kasubag');
+						redirect('dashboard');
 						break;
 					case ($valid_user->level_user == 'Staff' && $valid_user->status == 'Aktif'):
-						redirect('Staff');
+						redirect('dashboard');
 						break;
 					default : 
 						break;

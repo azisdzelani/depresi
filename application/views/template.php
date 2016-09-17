@@ -29,6 +29,10 @@
             class="icon-user"></i> Anda Login Sebagai, <?=$this->session->userdata('level_user') ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="<?= base_url('user/change_password') ?>">Setting Account</a></li>
+              <li><a href="<?= base_url('user') ?>">Manage User</a></li>
+              <li><a href="<?= base_url('dokumen') ?>">Manage Dokumen</a></li>
+              <li><a href="<?= base_url('berita') ?>">Manage Berita</a></li>
+              <li><a href="<?= base_url('kategori_dokumen') ?>">Manage Kategori</a></li>
               <li><a href="<?= base_url('auth/logout') ?>">Logout</a></li>
             </ul>
           </li>
@@ -49,32 +53,19 @@
     <div class="container">
       <ul class="mainnav">
 
-        <li class="active"><a href="<?= base_url('dashboard');?>"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+        <li class="active"><a href="<?=base_url('dashboard');?>"><i class="icon-home"></i><span>Home</span></a></li>
         <!--  end menu dashboard -->
 
-        <li><a href="<?= base_url('user');?>"><i class="icon-group"></i><span>Manage User</span> </a> </li>
-        <!-- end menu manage user -->
+        <li><a href="<?=base_url('dokumentasi');?>"><i class="icon-book"></i><span>Dokumentasi</span></a></li>
+        <!-- end menu dokumen -->
 
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Manage Dokumen</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?=base_url('dokumen');?>">Data Dokumen</a></li>
-            <li><a href="<?=base_url('kategori_dokumen') ?>">Tambah Kategori</a></li>
-          </ul>
-        </li>
-        <!-- end manu dokumen -->
-
-        <li><a href="<?= base_url('discussion') ?>"><i class="icon-comments"></i><span>Discussion</span> </a></li>
+        <li><a href="<?=base_url('discussion') ?>"><i class="icon-comments"></i><span>Discussion</span></a></li>
         <!-- end menu discussion -->
 
-        <li><a href="#"><i class="icon-pencil"></i><span>Blog</span> </a> </li>
+        <li><a href="<?=base_url('blog') ?>"><i class="icon-pencil"></i><span>Blog</span></a></li>
         <!-- end menu blog -->
 
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Berita dan Informasi</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?=base_url('berita');?>">Data Berita</a></li>
-            <li><a href="<?=base_url('kategori_berita') ?>">Tambah Kategori</a></li>
-          </ul>
-        </li>
+        <li><a href="<?=base_url('berita') ?>"><i class="icon-list-alt"></i><span>Berita</span></a></li>
         <!-- end menu berita -->
 
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-calendar"></i><span>Report</span> <b class="caret"></b></a>

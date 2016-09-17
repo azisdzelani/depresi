@@ -1,17 +1,16 @@
 <div class="main">
   <div class="main-inner">
     <div class="container">
-      
+
       <div class="row">
         <div class="span12">
 
           <div class="widget">
-            <div class="widget-header">
-              <i class="icon-user"></i><h3> Form Edit Pegawai</h3>
-            </div>
-
             <div class="widget-content">
-              <form id="edit-profile" class="form-horizontal" method="POST" action="<?=base_url('user/update') ?>">
+              <div class="panel panel-primary">
+                <div class="panel-heading"><?=$title ?></div><br>
+                <div class="panel-body">
+                 <form id="edit-profile" class="form-horizontal" method="POST" action="<?=base_url('user/update') ?>">
                   <fieldset>
                     <input type="hidden" name="id_pegawai" value="<?= $user->id_pegawai ?>">
                     <div class="control-group">                     
@@ -27,7 +26,7 @@
                         <input type="text" class="span6" name="nip" value="<?=$user->nip?>" placeholder="Masukan NIP">
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->
-                                       
+
                     <div class="control-group">                     
                       <label class="control-label" for="lastname">Tempat Lahir</label>
                       <div class="controls">
@@ -72,82 +71,78 @@
                           <option>Pilih Salah Satu</option>
                           <?php
                           foreach ($jabatan as $j) {
-                             echo "<option value='{$j->id_jabatan}'".($j->id_jabatan==$user->id_jabatan?' selected':'').">{$j->nama_jabatan}</option>";
-                           } 
+                           echo "<option value='{$j->id_jabatan}'".($j->id_jabatan==$user->id_jabatan?' selected':'').">{$j->nama_jabatan}</option>";
+                         } 
 
-                           ?>
-                        </select>
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->   
+                         ?>
+                       </select>
+                     </div> <!-- /controls -->       
+                   </div> <!-- /control-group -->   
 
-                    <div class="control-group">                     
-                      <label class="control-label" for="lastname">Email</label>
-                      <div class="controls">
-                        <input type="text" class="span6" name="email" value="<?=$user->email?>" placeholder="Masukan Email">
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->   
+                   <div class="control-group">                     
+                    <label class="control-label" for="lastname">Email</label>
+                    <div class="controls">
+                      <input type="text" class="span6" name="email" value="<?=$user->email?>" placeholder="Masukan Email">
+                    </div> <!-- /controls -->       
+                  </div> <!-- /control-group -->   
 
-                    <div class="control-group">                     
-                      <label class="control-label" for="lastname">Alamat Rumah</label>
-                      <div class="controls">
-                        <textarea rows="5" name="alamat" class="span6"><?=$user->alamat_rumah?></textarea>
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->   
+                  <div class="control-group">                     
+                    <label class="control-label" for="lastname">Alamat Rumah</label>
+                    <div class="controls">
+                      <textarea rows="5" name="alamat" class="span6"><?=$user->alamat_rumah?></textarea>
+                    </div> <!-- /controls -->       
+                  </div> <!-- /control-group -->   
 
-                    <div class="control-group">                     
-                      <label class="control-label" for="lastname">Telepon</label>
-                      <div class="controls">
-                        <input type="text" class="span6" name="telepon" value="<?=$user->telepon?>" placeholder="Masukan Nomer Telepon">
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->   
+                  <div class="control-group">                     
+                    <label class="control-label" for="lastname">Telepon</label>
+                    <div class="controls">
+                      <input type="text" class="span6" name="telepon" value="<?=$user->telepon?>" placeholder="Masukan Nomer Telepon">
+                    </div> <!-- /controls -->       
+                  </div> <!-- /control-group -->   
 
-                     <div class="control-group">                     
-                      <label class="control-label" for="lastname">Status User</label>
-                      <div class="controls">
-                        <select name="status" class="span6">
-                          <option value="Aktif"<?=$user->status=='Aktif'?' selected':''?>>Aktif</option>
-                          <option value="Tidak Aktif"<?=$user->status=='Tidak Aktif'?' selected':''?>>Tidak Aktif</option>
-                        </select>
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->   
+                  <div class="control-group">                     
+                    <label class="control-label" for="lastname">Status User</label>
+                    <div class="controls">
+                      <select name="status" class="span6">
+                        <option value="Aktif"<?=$user->status=='Aktif'?' selected':''?>>Aktif</option>
+                        <option value="Tidak Aktif"<?=$user->status=='Tidak Aktif'?' selected':''?>>Tidak Aktif</option>
+                      </select>
+                    </div> <!-- /controls -->       
+                  </div> <!-- /control-group -->   
 
-                    <div class="control-group">                     
-                      <label class="control-label" for="lastname">Level User</label>
-                      <div class="controls">
-                        <select name="level_user" class="span6">
-                          <option value=""></option>
-                          <option value="Kepala Bagian"<?=$user->level_user=='Kepala Bagian'?' selected':''?>>Kepala Bagian</option>
-                          <option value="Kepala Sub Bagian"<?=$user->level_user=='Kepala Sub Bagian'?' selected':''?>>Kepala Sub Bagian</option>
-                          <option value="Staff"<?=$user->level_user=='Staff'?' selected':''?>>Staff</option>
-                        </select>
-                      </div> <!-- /controls -->       
-                    </div> <!-- /control-group -->  
+                  <div class="control-group">                     
+                    <label class="control-label" for="lastname">Level User</label>
+                    <div class="controls">
+                      <select name="level_user" class="span6">
+                        <option value=""></option>
+                        <option value="Kepala Bagian"<?=$user->level_user=='Kepala Bagian'?' selected':''?>>Kepala Bagian</option>
+                        <option value="Kepala Sub Bagian"<?=$user->level_user=='Kepala Sub Bagian'?' selected':''?>>Kepala Sub Bagian</option>
+                        <option value="Staff"<?=$user->level_user=='Staff'?' selected':''?>>Staff</option>
+                      </select>
+                    </div> <!-- /controls -->       
+                  </div> <!-- /control-group -->  
 
-                      
-                     <br />
-                  
-                    <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Update</button> 
-                      <button  type="reset" class="btn btn-primary" onclick="batal();">Cancel</button>
-                    </div> <!-- /form-actions -->
-                  </fieldset>
-                </form>
-                <script>
-                function batal(){
-                  location.href="<?=base_url('user');?>";
-                }
-                </script>
+                  <br />
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update</button> 
+                    <button  type="reset" class="btn btn-primary">Cancel</button>
+                  </div> <!-- /form-actions -->
+                </fieldset>
+              </form>
             </div>
-            <!-- /widget-content --> 
-
-          </div> 
+          </div>
         </div>
-      </div>
-      <!-- /row --> 
+        <!-- /widget-content --> 
+
+      </div> 
     </div>
-    <!-- /container --> 
   </div>
-  <!-- /main-inner --> 
+  <!-- /row --> 
+</div>
+<!-- /container --> 
+</div>
+<!-- /main-inner --> 
 </div>
 <!-- /main -->
 

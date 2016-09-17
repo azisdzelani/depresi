@@ -20,37 +20,58 @@ class Discussion extends CI_Controller {
 		$this->template->publish('template', array('title'=>'Kategori Diskusi'));		
 	}
 
-	public function list_by_kategori()
+	public function get_by_kategori()
     {
         $id = $this->uri->segment(3); //tangkep param yag dilempar dari url
 
         $data = array('title' => 'halaman diskusi',
         		      'list_kategori' => $this->diskusi->get_by_kategori($id));
-        echo "<pre>";
-        print_r($data);
+        // echo "<pre>";
+        // var_dump($data['list_kategori']);
+        // echo "</pre>";
+        // print_r($data);
        
         $this->template->content->view('diskusi_view', $data);
         $this->template->publish('template', array('title'=>'Dashboard')); 
     }
 
-	public function get_by_id($id)
+	public function detail_by_id($id)
 	{
 		$data['title'] = 'Detail Diskusi';
-		$this->load->model('model_discussion', 'discussion');
-		$this->load->model('model_komentar', 'komentar');
+
+		$id = $this->uri->segment(3); //tangkep param yag dilempar dari url
+
+        $data = array('title' => 'halaman diskusi',
+        		      'list_kategori' => $this->diskusi->get_discussion_detail($id));
+		
+		// $data['discussion'] = $this->discussion->get_by_kategori($id);
+		$data['komentar'] = $this->diskusi->get_comment($id);
+		echo "</pre>";
+        print_r($data['komentar']);
+
+		// $this->load->model('model_jabatan','jabatan');
+		// $data['jabatan'] = $this->jabatan->lists();
 
 
-		$data['discussion'] = $this->discussion->get_by_id($id);
-		$data['komentar'] = $this->komentar->get_by_id_diskusi($id);
-		print_r($data); die;
-
-		$this->load->model('model_jabatan','jabatan');
-		$data['jabatan'] = $this->jabatan->lists();
-
-
-		$this->template->content->view('form_edit_pegawai', $data);
+		$this->template->content->view('detail_diskusi', $data);
 		$this->template->publish('template', array('title'=>'Edit Pegawai'));
 	}
+
+	public function do_create()
+	{
+		
+		$data_comment = array(
+						'id_diskusi' => $this->input->post('id_diskusi'),
+						'isi_komentar' 	=> $this->input->post('komen'),
+						'date'			=> date('Y-m-d H:i:s'),
+						'id_pegawai'	=> $this->session->userdata('id_pegawai')
+			);
+
+		$this->diskusi->save($data_comment);
+		redirect('discussion');
+	}
+
+	
 
 }
 

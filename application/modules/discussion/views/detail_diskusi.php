@@ -1,23 +1,32 @@
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="widget">
+            <!-- content start -->
+            <div class="widget-content"><br>
+              <h1><?=$list_kategori->judul_diskusi ?></h1>
+              <p><?=$list_kategori->isi_diskusi ?></p>
+              <?php  
+              foreach ($komentar as $list) { ?> 
+                <b><?=$list->nama_lengkap?></b>             
+                <p><?=$list->isi_komentar?></p>
+                <?php } ?>
 
-            <form>
-            	<input type="hidden" value="<?=$discussion->id_diskusi" name="">
-            	<textarea></textarea>
-            </form>
+                <form action="<?=base_url('discussion/do_create') ?>" method="POST">
+                  <input type="hidden" name="id_diskusi" value="<?=$list_kategori->id_diskusi?>">
+                  <input type="text" name="komen"><br>
+                  <button type="submit" name="sumbit">Comment</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-            <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar1.png"></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">John Smith</a> <span class="time">1 hour ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> As an interesting side note, as a head without a body, I envy the dead. There's one way and only one way to determine if an animal is intelligent. Dissect its brain! Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor. </div>
-                  </div>
-                </li>
+
