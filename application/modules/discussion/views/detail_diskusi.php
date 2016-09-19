@@ -6,7 +6,7 @@
           <div class="widget">
             <!-- content start -->
             <div class="widget-content"><br>
-              <h1><?=$list_kategori->judul_diskusi ?></h1>
+              <div class="text"></div><h1><?=$list_kategori->judul_diskusi ?></h1>
               <p><?=$list_kategori->isi_diskusi ?></p>
               <?php  
               foreach ($komentar as $list) { ?> 

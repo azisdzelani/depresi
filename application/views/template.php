@@ -31,7 +31,7 @@
               <li><a href="<?= base_url('user/change_password') ?>">Setting Account</a></li>
               <li><a href="<?= base_url('user') ?>">Manage User</a></li>
               <li><a href="<?= base_url('dokumen') ?>">Manage Dokumen</a></li>
-              <li><a href="<?= base_url('berita') ?>">Manage Berita</a></li>
+              <li><a href="<?= base_url('berita/admin_view') ?>">Manage Berita</a></li>
               <li><a href="<?= base_url('kategori_dokumen') ?>">Manage Kategori</a></li>
               <li><a href="<?= base_url('auth/logout') ?>">Logout</a></li>
             </ul>
@@ -89,6 +89,7 @@
   <!-- /subnavbar-inner --> 
 </div>
 <!-- /subnavbar -->
+
 <?= $this->template->content; ?>
 <!-- /main -->
 
@@ -110,12 +111,17 @@
 ================================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="<?= base_url() ?>assets/js/jquery-1.7.2.min.js"></script> 
+<script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
 <script src="<?= base_url() ?>assets/js/excanvas.min.js"></script> 
 <script src="<?= base_url() ?>assets/js/chart.min.js" type="text/javascript"></script> 
 <script src="<?= base_url() ?>assets/js/bootstrap.js"></script>
 <script language="javascript" type="text/javascript" src="<?= base_url() ?>assets/js/full-calendar/fullcalendar.min.js"></script>
- 
 <script src="<?php echo base_url() ?>assets/js/base.js"></script> 
+<script>
+  $(function () {
+        CKEDITOR.replace('ckeditor1');
+    });
+</script>
 <script>     
 
         var lineChartData = {
