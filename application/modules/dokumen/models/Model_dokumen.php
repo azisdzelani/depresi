@@ -32,6 +32,18 @@ class Model_dokumen extends CI_Model
 
 	}
 
+	public function user_view()
+	{
+		$this->db->select('tbl_dokumen.*, tbl_kategori_dokumen.*, tbl_user.id_pegawai, tbl_pegawai.*')
+					->from('tbl_dokumen')
+					->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
+					->join('tbl_user', 'tbl_dokumen.id_user = tbl_user.id_user')
+					->join('tbl_pegawai', 'tbl_user.id_pegawai = tbl_pegawai.id_pegawai');
+		$list = $this->db->get();
+
+		return $list->result();
+	}
+
 }
 
 /* End of file Model_dokumen.php */

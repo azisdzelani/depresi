@@ -11,7 +11,6 @@ class Dokumen extends CI_Controller {
 
 	public function index()
 	{
-
 		$data = array(
 				'title'		=> 'Daftar Master Dokumen',
 				'dokumen'	=> $this->dokumen->lists());
@@ -33,7 +32,7 @@ class Dokumen extends CI_Controller {
 	{
 		$config['upload_path']          = './uploads/';
        	$config['allowed_types']        = 'docx|doc|pdf';
-        $config['max_size']             = '300';
+        $config['max_size']             = '2000';
         $config['max_width']            = '2000';
         $config['max_height']           = '2000';
 
@@ -75,6 +74,40 @@ class Dokumen extends CI_Controller {
 		$this->dokumen->delete($id, $file);
 
 		redirect('dokumen');
+	}
+
+	public function user_view()
+	{
+		$data = array(
+				'title'		=> 'Explicit Knowledge',
+				'kategori'  => $this->kategori->lists(),
+				'dokumen'	=> $this->dokumen->user_view());
+		// echo "<pre>";
+  //       var_dump($data);
+
+		$this->template->content->view('user_view', $data);
+		$this->template->publish('template', array('title'=>'Dokumen'));
+	}
+
+	public function download($str)
+	{
+		force_download('./uploads/'.$str, NULL);
+	}
+
+	public function xmlDokumen($filter)
+	{
+		$this->db->select('tbl_dokumen.*, tbl_kategori_dokumen.*, tbl_user.id_pegawai, tbl_pegawai.*')
+					->from('tbl_dokumen')
+					->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
+					->where('nama_kategori',$filter)
+					->join('tbl_user', 'tbl_dokumen.id_user = tbl_user.id_user')
+					->join('tbl_pegawai', 'tbl_user.id_pegawai = tbl_pegawai.id_pegawai');
+		$list = $this->db->get();
+
+		$xml = $list->result();
+
+		$data['xml'] = $xml;
+		$this->load->view('xml',$data);
 	}
 
 }

@@ -45,7 +45,7 @@ class Discussion extends CI_Controller {
 		$data['komentar'] = $this->diskusi->get_comment($id);
 		
 		// echo "</pre>";
-  	    //print_r($data['komentar']);
+  // 	    print_r($data['komentar']);
 
 		$this->template->content->view('detail_diskusi', $data);
 		$this->template->publish('template', array('title'=>'Discussion'));
